@@ -1,4 +1,97 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    align-items: center;
+    padding: 50px 20px;
+}
+.section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal{
+    display: none;
+}
+.show-modal{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0, 0, 0.8);
+}
+form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    gap: 15px;
+    padding: 30px;
+    min-width: 600px; ;
+}
+.app{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 20px 40px;
+    gap: 30px;
+}
+.app h1{
+    grid-column: 1/-1;
+    text-align: center;
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    gap: 20px;
+    padding: 20px;
+
+}
+.card button{
+    display: inline-block;
+    padding: 8px 24px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    min-width: 120px;
+}
+.close-btn{
+    display: inline-block;
+    padding: 8px 24px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    background-color: red;
+}
+.read{
+    background-color: green;
+}
+.not-read{
+    background-color: red;
 }

@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
 <body>
-    <div class="app"></div>
+    <div class="modal">
+        <form action="" id="form">
+            <h3>Add new Book</h3>
+            <input type="text" name="" id="title" required>
+            <input type="text" name="" id="author" required>
+            <input type="number" name="" id="pages">
+            <label for="check">Have you read this book? </label>
+            <input type="checkbox" name="check" id="select">
+            <button type="submit" id="add">Add book</button>
+        </form>
+    </div>
+    <header>
+        <div class="logo">
+            <h1>Library</h1>    
+        </div>        
+    </header>
+    <section class="section">
+        <button id="modal-btn">Add new book?</button>
+    </section>   
+    <section class="app" id="app"></section>
+    <script src="app.js"></script>
 </body>
 </html>
