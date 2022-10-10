@@ -1,8 +1,23 @@
+:root{
+    --bg-color:#f1f5f9;
+    --bg-color-2:#f8fafc;
+    --border-clr:#d1d5db;
+    --red-clr:#ef4444;
+    --green-clr:#10b981;
+    --gray-clr:#374151;
+
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: var(--bg-color);
+}
+span{
+    color: var(--gray-clr);
 }
 header{
     display: flex;
@@ -10,6 +25,8 @@ header{
     gap: 40px;
     align-items: center;
     padding: 50px 20px;
+    border-bottom: 1px solid var(--border-clr);
+    box-shadow: 0 10px  20px rgba(0,0, 0, 0.2);
 }
 .section{
     position: relative;
@@ -17,6 +34,29 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
+}
+#modal-btn{
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid var(--border-clr);
+    border-radius: 10px;
+    outline: none;
+    background-color: var(--bg-color-2);
+    color: black;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+#modal-btn i{
+    padding: 5px;
+}
+.close-modal{
+    cursor: pointer;
+    align-self: flex-end;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background-color: var(--bg-color-2);
 }
 .modal{
     display: none;
@@ -41,10 +81,40 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: #fff;
-    gap: 15px;
+    background-color: var(--bg-color-2);
+    border-radius: 10px;
+    gap: 30px;
     padding: 30px;
     min-width: 600px; ;
+}
+fieldset{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: none;
+    outline: none;
+    width: 100%;
+    gap: 10px;
+}
+fieldset input{
+    width: auto;
+}
+input{
+    font-size: 1.2rem;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid var(--border-clr);
+    outline: none;
+    padding: 5px;
+}
+#add{
+    display: inline-block;
+    border: none;
+    padding: 8px 24px;
+    background-color: var(--green-clr);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 .app{
     position: relative;
@@ -63,35 +133,35 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--bg-color-2);
     height: 100%;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid var(--border-clr);
     border-radius: 15px;
-    gap: 20px;
+    box-shadow: 0 10px 20px rgba(0,0, 0, 0.2);
+    gap: 10px;
     padding: 20px;
-
+}
+.card p{
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 .card button{
     display: inline-block;
     padding: 8px 24px;
     border: none;
+    border-radius: 10px;
     outline: none;
     color: white;
     font-size: 1.2rem;
     min-width: 120px;
 }
 .close-btn{
-    display: inline-block;
-    padding: 8px 24px;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 1.2rem;
-    background-color: red;
+    background-color: var(--red-clr)
 }
 .read{
-    background-color: green;
+    background-color:var(--green-clr)
 }
 .not-read{
-    background-color: red;
+    background-color: var(--red-clr)
 }

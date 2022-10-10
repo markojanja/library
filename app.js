@@ -6,6 +6,7 @@ const pages = document.getElementById("pages");
 const readStatus = document.getElementById("select");
 const myForm = document.querySelector("#form");
 const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".close-modal");
 const modalBtn = document.getElementById("modal-btn");
 
 function Book(title, author, pages, status) {
@@ -15,14 +16,14 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 const books = [];
-let hobbit = new Book("Hobbit", "JRR Tolkein", 300, "read");
+let hobbit = new Book("Hobbit", "JRR Tolkein", 300, "Read");
 books.push(hobbit)
 getLibrary();
 
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
     readStatus.checked ?
-        (readStatus.value = "read") :
+        (readStatus.value = "Read") :
         (readStatus.value = "Not read");
     let newBook = new Book(
         title.value,
@@ -36,34 +37,42 @@ myForm.addEventListener("submit", function (e) {
     modal.classList.remove("show-modal");
 });
 
+closeModal.addEventListener('click',()=>{
+    modal.classList.remove("show-modal")
+})
 function displayBooks() {
     app.innerHTML = "";
     books.map(function (book) {
         const card = document.createElement("div");
         const cardTitle = document.createElement("h2");
         const cardAuthor = document.createElement("h2");
+        const cardPages = document.createElement("p")
         const cardBtn = document.createElement("button");
         const closeBtn = document.createElement("button");
         const span = document.createElement("span");
         const span2 = document.createElement("span");
+        const span3 = document.createElement("span");
+        app.appendChild(card);
         card.appendChild(span);
-        span.textContent = "title";
-        span2.textContent = "author";
         card.appendChild(cardTitle);
         card.appendChild(span2);
         card.appendChild(cardAuthor);
+        card.appendChild(span3)
+        card.appendChild(cardPages)
         card.appendChild(cardBtn);
-        card.setAttribute("data-index", books.indexOf(book));
-        card.classList.add("card");
         card.appendChild(closeBtn);
-        closeBtn.textContent = "Remove";
-        app.appendChild(card);
-        closeBtn.classList.add("close-btn");
+        span.textContent = "Title";
+        span2.textContent = "Author";
+        span3.textContent = 'Pages'
         cardTitle.textContent = book.title;
         cardAuthor.textContent = book.author;
+        cardPages.textContent = book.pages
         cardBtn.textContent = book.status;
+        closeBtn.textContent = "Remove";
+        card.classList.add("card");
+        closeBtn.classList.add("close-btn");
         cardBtn.classList.add("card-btn");
-        cardBtn.textContent === "read" ?
+        cardBtn.textContent === "Read" ?
             cardBtn.classList.add("read") :
             cardBtn.classList.add("not-read");
         myForm.reset();
@@ -79,18 +88,17 @@ function changeReadStatus() {
             let title = cardTitle.textContent;
             let book = books.find((book) => title === book.title);
 
-            if (book.status === "read") {
+            if (book.status === "Read") {
                 book.status = "Not read";
                 btn.textContent = book.status;
                 btn.classList.remove("read");
                 btn.classList.add("not-read");
             } else {
-                book.status = "read";
+                book.status = "Read";
                 btn.textContent = book.status;
                 btn.classList.remove("not-read");
                 btn.classList.add("read");
             }
-            console.log(book);
         });
     });
 }

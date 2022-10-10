@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
 <body>
     <div class="modal">
+        
         <form action="" id="form">
+            <button type="button" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
             <h3>Add new Book</h3>
-            <input type="text" name="" id="title" required>
-            <input type="text" name="" id="author" required>
-            <input type="number" name="" id="pages">
-            <label for="check">Have you read this book? </label>
-            <input type="checkbox" name="check" id="select">
+            <input type="text" name="" id="title" required autocomplete="off" placeholder="Book title">
+            <input type="text" name="" id="author" required autocomplete="off" placeholder="Book author">
+            <input type="number" name="" id="pages" min="1" placeholder="Number of pages">
+            
+            <fieldset>
+                <label for="check">Have you read this book? </label>
+                <input type="checkbox" name="check" id="select">
+            </fieldset>
             <button type="submit" id="add">Add book</button>
         </form>
     </div>
@@ -25,7 +31,7 @@
         </div>        
     </header>
     <section class="section">
-        <button id="modal-btn">Add new book?</button>
+        <button id="modal-btn"><i class="fa-solid fa-plus"></i></button>
     </section>   
     <section class="app" id="app"></section>
     <script src="app.js"></script>
