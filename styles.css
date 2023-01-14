@@ -148,6 +148,7 @@ input{
 }
 .card button{
     display: inline-block;
+    cursor: pointer;
     padding: 8px 24px;
     border: none;
     border-radius: 10px;
