@@ -12,8 +12,25 @@
     constructor() {
       this.books = [];
     }
+    stotageInit() {
+      const getBooks = localStorage.getItem("books");
+      if (getBooks === null) {
+        window.onload = localStorage.setItem(
+          "books",
+          JSON.stringify(this.books)
+        );
+      } else {
+        window.onload = this.displayBooks();
+      }
+    }
+    set LocalStorage(_books) {
+      return localStorage.setItem("books", JSON.stringify(_books));
+    }
+    get LocalStorage() {
+      return (this.books = JSON.parse(localStorage.getItem("books")));
+    }
     addBook(book) {
-      this.books = JSON.parse(localStorage.getItem("books"));
+      this.books = this.LocalStorage;
       this.books.push(book);
     }
     removeBook() {
@@ -22,7 +39,6 @@
         const closeBtn = card.querySelector(".close-btn");
         const cardTitle = card.children[1];
         closeBtn.addEventListener("click", () => {
-          // this.books = JSON.parse(localStorage.getItem("books"));
           this.LocalStorage;
           let title = cardTitle.textContent;
           let bookIndex = this.books.findIndex((book) => title === book.title);
@@ -91,27 +107,11 @@
       this.removeBook();
       this.LocalStorage =this.books;
     }
-    storageSetup() {
-      const getBooks = localStorage.getItem("books");
-      if (getBooks === null) {
-        window.onload = localStorage.setItem(
-          "books",
-          JSON.stringify(this.books)
-        );
-      } else {
-        window.onload = this.displayBooks();
-      }
-    }
-    set LocalStorage(_books) {
-      return localStorage.setItem("books", JSON.stringify(_books));
-    }
-    get LocalStorage() {
-      return (this.books = JSON.parse(localStorage.getItem("books")));
-    }
+
   }
 
   const library = new Library();
-  library.storageSetup();
+  library.stotageInit();
   library.displayBooks();
 
   //handle modal
