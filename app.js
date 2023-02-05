@@ -12,7 +12,7 @@
     constructor() {
       this.books = [];
     }
-    stotageInit() {
+    storageInit() {
       const getBooks = localStorage.getItem("books");
       if (getBooks === null) {
         window.onload = localStorage.setItem(
@@ -111,7 +111,7 @@
   }
 
   const library = new Library();
-  library.stotageInit();
+  library.storageInit();
   library.displayBooks();
 
   //handle modal
